@@ -11,7 +11,7 @@ public class Roulette_Screen extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_roulette__screen);
+        setContentView(R.layout.activity_roulette_screen);
     }
 
     @Override

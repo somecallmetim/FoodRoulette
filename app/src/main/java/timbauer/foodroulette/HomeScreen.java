@@ -1,5 +1,6 @@
 package timbauer.foodroulette;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -39,6 +40,8 @@ public class HomeScreen extends ActionBarActivity {
 
     public void playRoulette(View view) {
 
+        Intent playRoulette = new Intent(HomeScreen.this, Roulette_Screen.class);
+        startActivity(playRoulette);
 
     }
 
