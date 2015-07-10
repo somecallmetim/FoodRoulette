@@ -4,21 +4,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 
-public class HomeScreen extends ActionBarActivity {
+public class Roulette_Screen extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_screen);
+        setContentView(R.layout.activity_roulette__screen);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home_screen, menu);
+        getMenuInflater().inflate(R.menu.menu_roulette__screen, menu);
         return true;
     }
 
@@ -35,13 +34,5 @@ public class HomeScreen extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void playRoulette(View view) {
-
-
-    }
-
-    public void openPreferences(View view) {
     }
 }

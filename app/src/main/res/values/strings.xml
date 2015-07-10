@@ -6,4 +6,6 @@
     <string name="title_activity_home_screen">HomeScreen</string>
     <string name="Food_Roulette_Splash_Screen">Food Roulette</string>
     <string name="Splash_Screen_Loading">Loading</string>
+    <string name="Home_Screen_Preferences_Button">Preferences</string>
+    <string name="title_activity_roulette__screen">Roulette_Screen</string>
 </resources>
