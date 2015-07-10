@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_home_screen">HomeScreen</string>
+    <string name="Food_Roulette_Splash_Screen">Food Roulette</string>
+    <string name="Splash_Screen_Loading">Loading</string>
 </resources>
