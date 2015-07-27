@@ -32,18 +32,22 @@ public class YelpLoadingScreen extends ActionBarActivity {
 
     Context mContext;
     AsyncTask mAsyncTask;
+    int genreSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yelp_loading_screen);
 
-        mAsyncTask = new GetYelpData(this).execute();
+        Intent getGenre = getIntent();
+        genreSelector = getGenre.getExtras().getInt("restaurantGenre");
+
+        mAsyncTask = new GetYelpData(this, genreSelector).execute();
     }
 
     protected void startRouletteScreen(ArrayList<Business> result){
 
-        Intent goToRouletteScreen = new Intent(this, RouletteScreen.class);
+        Intent goToPostRouletteScreen = new Intent(this, PostRouletteScreen.class);
         if(result == null){
             result = new ArrayList<Business>(1);
             result.add(0, new Business());
@@ -51,7 +55,7 @@ public class YelpLoadingScreen extends ActionBarActivity {
         }
 
         BusinessList.getBusinessList(result);
-        startActivity(goToRouletteScreen);
+        startActivity(goToPostRouletteScreen);
         finish();
 
     }
@@ -60,9 +64,12 @@ public class YelpLoadingScreen extends ActionBarActivity {
 
     class GetYelpData extends AsyncTask<Void, Void, ArrayList<Business>> {
         Context context;
+        int genreSelector;
+        String genre;
 
-        GetYelpData(Context context) {
+        GetYelpData(Context context, int genreSelector) {
             this.context = context;
+            this.genreSelector = genreSelector;
 
 
 
@@ -87,8 +94,33 @@ public class YelpLoadingScreen extends ActionBarActivity {
 
         @Override
         protected ArrayList<Business> doInBackground(Void... params) {
+            switch (genreSelector){
+                case 1:
+                    genre = "Mexican Food";
+                    break;
+                case 2:
+                    genre = "Chinese Food";
+                    break;
+                case 3:
+                    genre = "Fast Food";
+                    break;
+                case 4:
+                    genre = "Steak House";
+                    break;
+                case 5:
+                    genre = "Korean Food";
+                    break;
+                case 6:
+                    genre = "Sushi";
+                    break;
+                default:
+                    genre = "Food";
+                    break;
+            }
+
+
             Yelp yelp = Yelp.getYelp(YelpLoadingScreen.this);
-            String businesses = yelp.search("tacos", 37.788022, -122.399797);
+            String businesses = yelp.search(genre, 37.788022, -122.399797);
 
 
             try {

@@ -40,7 +40,7 @@ public class HomeScreen extends ActionBarActivity {
 
     public void playRoulette(View view) {
 
-        Intent playRoulette = new Intent(HomeScreen.this, YelpLoadingScreen.class);
+        Intent playRoulette = new Intent(HomeScreen.this, RouletteScreen.class);
         startActivity(playRoulette);
 
     }

@@ -8,11 +8,16 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="timbauer.foodroulette.PostRouletteScreenFragment">
 
-    <fragment
-        android:id="@+id/mapFragment"
-        android:name="com.google.android.gms.maps.MapFragment"
-        tools:layout="@layout/fragment_post__roulette__screen"
+
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:id="@+id/businessAttributes"></ListView>
+    <!--<fragment-->
+        <!--android:id="@+id/mapFragment"-->
+        <!--android:name="com.google.android.gms.maps.MapFragment"-->
+        <!--tools:layout="@layout/fragment_post__roulette__screen"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
 </RelativeLayout>

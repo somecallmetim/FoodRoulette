@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import YelpApi.Business;
 import YelpApi.BusinessList;
@@ -18,19 +20,22 @@ import YelpApi.BusinessList;
 public class RouletteScreen extends ActionBarActivity {
 
     public TextView businesses;
+    public Random randomNumberGenerator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roulette_screen);
 
-        Business[] yelpResults = BusinessList.businesses;
+        randomNumberGenerator = new Random();
 
-        ArrayAdapter<String> businessAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, yelpResults[0].toArray());
-
-        ListView businessAttributes = (ListView) findViewById(R.id.businessAttributes);
-        businessAttributes.setAdapter(businessAdapter);
+//        Business[] yelpResults = BusinessList.businesses;
+//
+//        ArrayAdapter<String> businessAdapter = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_list_item_1, android.R.id.text1, yelpResults[0].toArray());
+//
+//        ListView businessAttributes = (ListView) findViewById(R.id.businessAttributes);
+//        businessAttributes.setAdapter(businessAdapter);
 
     }
 
@@ -54,5 +59,12 @@ public class RouletteScreen extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void playFoodRoulette(View view) {
+        Intent goToYelpLoadingScreen = new Intent(this, YelpLoadingScreen.class);
+        int restaurantGenre = randomNumberGenerator.nextInt(6) + 1;
+        goToYelpLoadingScreen.putExtra("restaurantGenre", restaurantGenre);
+        startActivity(goToYelpLoadingScreen);
     }
 }
