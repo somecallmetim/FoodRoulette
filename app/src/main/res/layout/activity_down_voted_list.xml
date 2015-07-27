@@ -3,21 +3,41 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:id="@+id/mResturantNames">
+    android:id="@+id/mResturantNames"
+    android:background="#FFFF00">
 
 
-    <TextView
-        android:layout_width="304dp"
-        android:layout_height="26dp"
-        android:text="Down Voted List"
+    <timbauer.foodroulette.CustomFont
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List of restaurants that make you go BLEH!!!"
+        android:textColor="#000080"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
-        android:textSize="32dp"
-        android:layout_weight="0.26" />
+        android:textSize="24dp" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="439dp"
-        android:id="@+id/downVotedList"
-        android:layout_weight="0.73" />
+        android:id="@+id/downVotedList" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="#000080"
+            android:text="Reset Db Table"
+            android:textColor="#FFFF00"
+            android:gravity="center_horizontal"
+            android:onClick="resetDb"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+
 </LinearLayout>

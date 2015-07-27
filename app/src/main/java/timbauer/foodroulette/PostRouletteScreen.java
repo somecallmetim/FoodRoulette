@@ -44,12 +44,23 @@ public class PostRouletteScreen extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post__roulette__screen);
 
+
         yelpResults = BusinessList.businesses;
 
         randomNumberGenerator = new Random();
-        restaurantSelector = randomNumberGenerator.nextInt(yelpResults.length);
 
-        selectedRestaurant = yelpResults[restaurantSelector];
+        int stopInt = 0;
+
+        do{
+            restaurantSelector = randomNumberGenerator.nextInt(yelpResults.length);
+            selectedRestaurant = yelpResults[restaurantSelector];
+            stopInt++;
+            if(stopInt>=yelpResults.length){
+                finish();
+                break;
+            }
+        }while(DbAbstractionLayer.isRestaurantInBlockedList(selectedRestaurant.id, this));
+
         viewRestaurant = (TextView) findViewById(R.id.selected_restaurant);
 
         restLoc = selectedRestaurant.latLng;
@@ -75,9 +86,19 @@ public class PostRouletteScreen extends ActionBarActivity {
     public void getNextRestaurant(View view) {
         yelpMap.clear();
         randomNumberGenerator = new Random();
-        restaurantSelector = randomNumberGenerator.nextInt(yelpResults.length);
 
-        selectedRestaurant = yelpResults[restaurantSelector];
+        int stopInt = 0;
+
+        do{
+            restaurantSelector = randomNumberGenerator.nextInt(yelpResults.length);
+            selectedRestaurant = yelpResults[restaurantSelector];
+            stopInt++;
+            if(stopInt>=yelpResults.length) {
+                finish();
+                break;
+            }
+        }while(DbAbstractionLayer.isRestaurantInBlockedList(selectedRestaurant.id, this));
+
         viewRestaurant = (TextView) findViewById(R.id.selected_restaurant);
 
         restLoc = selectedRestaurant.latLng;
@@ -115,6 +136,7 @@ public class PostRouletteScreen extends ActionBarActivity {
 
         Intent moveToDvList = new Intent(this, DownVotedList.class);
         startActivity(moveToDvList);
+        getNextRestaurant(view);
     }
 
 

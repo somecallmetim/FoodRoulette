@@ -2,10 +2,12 @@ package Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import YelpApi.Business;
+import timbauer.foodroulette.DownVotedList;
 
 /**
  * Created by timbauer on 7/27/15.
@@ -120,8 +122,16 @@ public class DbAbstractionLayer {
 
 
         restaurantDb.delete(RestaurantDatabase.dbResTable, RestaurantDatabase.id + " = ?",
-                new String[] {restaurant.id} );
+                new String[]{restaurant.id});
 
+    }
+
+    public static void removeDvTables (Context context){
+        mContext = context;
+        restaurantDatabase = RestaurantDatabase.getRestaurantDatabase(mContext);
+        restaurantDb = restaurantDatabase.getWritableDatabase();
+
+        mContext.deleteDatabase(RestaurantDatabase.dbName);
     }
 
 }

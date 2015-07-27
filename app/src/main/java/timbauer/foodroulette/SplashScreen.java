@@ -22,6 +22,7 @@ public class SplashScreen extends Activity {
     private static int SPLASH_TIME_OUT = 4000;
     private RestaurantDatabase restaurantDatabase;
     private SQLiteDatabase restaurantDb;
+    private boolean firstRun = false;
 
 
     @Override
@@ -38,6 +39,8 @@ public class SplashScreen extends Activity {
         Cursor restData = restaurantDb.rawQuery("SELECT * FROM " + RestaurantDatabase.dbResTable, null);
 
         if (!(restData.getCount() > 0)){
+
+            firstRun = true;
 
             String[] tableColumns = new String[]{
                     RestaurantDatabase.id,
@@ -61,7 +64,7 @@ public class SplashScreen extends Activity {
 
             restaurantDb.insert(RestaurantDatabase.dbResTable, null, dummyRestaurant);
 
-            showEULAmessage();
+
 
         }
         restaurantDb.close();
@@ -81,15 +84,20 @@ public class SplashScreen extends Activity {
 
         //if location services are not enabled, prompt the user to enable them
         if(!isGpsOn){
+
+            if(firstRun){
+                showEULAmessage();
+            }
+
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage("For best results, please enable location services. Would you like to do this now?")
                     .setCancelable(false)
                     //if user clicks yes, stops foodroulette and opens the devices settings app/screen
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(final DialogInterface dialog,  final int id) {
+
                             Intent turnOnLocServ = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                             startActivity(turnOnLocServ);
-
                         }
                     })
                     //if user clicks no, moves user to the home screen
@@ -102,6 +110,9 @@ public class SplashScreen extends Activity {
                     });
             final AlertDialog alert = builder.create();
             alert.show();
+
+        }else if(firstRun){
+            showEULAmessage();
         //is location services are enabled, show the splash screen for a bit and move to the home screen
         }else {
             //the following code forces the program to show the splash screen for 4 seconds
@@ -126,14 +137,16 @@ public class SplashScreen extends Activity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        Intent moveToHomeScreen = new Intent(SplashScreen.this, HomeScreen.class);
-        startActivity(moveToHomeScreen);
-        //close this activity
-        finish();
+        if (!firstRun){
+            Intent moveToHomeScreen = new Intent(SplashScreen.this, HomeScreen.class);
+            startActivity(moveToHomeScreen);
+            //close this activity
+            finish();
+        }
     }
 
     private void showEULAmessage(){
-
+        new SimpleEula(this, this).show();
     }
 }
 

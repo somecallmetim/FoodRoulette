@@ -33,21 +33,21 @@
         android:onClick="playFoodRoulette"/>
 
     <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView2"
-        android:layout_above="@+id/hamburger">
+        android:id="@+id/genre_table"
+        android:layout_below="@+id/textView2">
 
         <TableRow>
             <timbauer.foodroulette.CustomFont
                 android:layout_column="1"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_weight="1"
-                android:textSize="34sp"
+                android:textSize="30sp"
                 android:textAlignment="center"
-                android:textColor="#000080"
+                android:textColor="#FF0000"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:text="Mexican"/>
@@ -55,11 +55,11 @@
             <timbauer.foodroulette.CustomFont
                 android:layout_column="2"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_weight="1"
-                android:textSize="34sp"
+                android:textSize="30sp"
                 android:textAlignment="center"
-                android:textColor="#000080"
+                android:textColor="#FF0000"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:text="Chinese"/>
@@ -68,53 +68,63 @@
             <timbauer.foodroulette.CustomFont
                 android:layout_column="1"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_weight="1"
-                android:textSize="34sp"
+                android:textSize="30sp"
                 android:textAlignment="center"
-                android:textColor="#000080"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:text="Fast Food"/>
+                android:textColor="#FF0000"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Fast &#xD;Food"/>
 
             <timbauer.foodroulette.CustomFont
                 android:layout_column="2"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_weight="1"
-                android:textSize="34sp"
+                android:textSize="30sp"
                 android:textAlignment="center"
-                android:textColor="#000080"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:text="Steak House"/>
+                android:textColor="#FF0000"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Steak &#xD;House"/>
         </TableRow>
         <TableRow>
             <timbauer.foodroulette.CustomFont
                 android:layout_column="1"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_weight="1"
-                android:textSize="34sp"
+                android:textSize="30sp"
                 android:textAlignment="center"
-                android:textColor="#000080"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:textColor="#FF0000"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="Korean"/>
 
             <timbauer.foodroulette.CustomFont
                 android:layout_column="2"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_weight="1"
-                android:textSize="34sp"
+                android:textSize="30sp"
                 android:textAlignment="center"
-                android:textColor="#000080"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:textColor="#FF0000"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="Sushi"/>
         </TableRow>
     </TableLayout>
+    <timbauer.foodroulette.CustomFont
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/play_instructions"
+        android:layout_below="@+id/genre_table"
+        android:text="Hit 'Play!' to get a random restaurant from one of the above genre's!!!"
+        android:textColor="#000080"
+        android:textSize="18sp"
+        android:layout_marginTop="30dp"
+        />
 
 
 </RelativeLayout>

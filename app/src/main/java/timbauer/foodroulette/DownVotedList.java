@@ -24,6 +24,8 @@ public class DownVotedList extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_down_voted_list);
+
+
         Business[] downVotedRestaurants = DbAbstractionLayer.getDownVotedList(this);
         String[] restaurantNames = new String[downVotedRestaurants.length];
 
@@ -39,5 +41,9 @@ public class DownVotedList extends ActionBarActivity {
 
 
 
+    }
+
+    public void resetDb(View view) {
+        DbAbstractionLayer.removeDvTables(this);
     }
 }
