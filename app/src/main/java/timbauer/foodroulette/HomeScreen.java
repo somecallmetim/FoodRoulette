@@ -40,11 +40,16 @@ public class HomeScreen extends ActionBarActivity {
 
     public void playRoulette(View view) {
 
-        Intent playRoulette = new Intent(HomeScreen.this, Roulette_Screen.class);
+        Intent playRoulette = new Intent(HomeScreen.this, YelpLoadingScreen.class);
         startActivity(playRoulette);
 
     }
 
     public void openPreferences(View view) {
+    }
+
+    public void goToPostRouletteScreen(View view) {
+        Intent goToPostRouletteScreen = new Intent(HomeScreen.this, PostRouletteScreen.class);
+        startActivity(goToPostRouletteScreen);
     }
 }

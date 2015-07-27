@@ -1,17 +1,37 @@
 package timbauer.foodroulette;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
+import YelpApi.Business;
+import YelpApi.BusinessList;
 
 
-public class Roulette_Screen extends ActionBarActivity {
+public class RouletteScreen extends ActionBarActivity {
+
+    public TextView businesses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roulette_screen);
+
+        Business[] yelpResults = BusinessList.businesses;
+
+        ArrayAdapter<String> businessAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, yelpResults[0].toArray());
+
+        ListView businessAttributes = (ListView) findViewById(R.id.businessAttributes);
+        businessAttributes.setAdapter(businessAdapter);
+
     }
 
     @Override

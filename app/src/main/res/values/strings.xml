@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FoodRoulette</string>
+    <string name="app_name">FoodRoulette2</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -8,4 +8,12 @@
     <string name="Splash_Screen_Loading">Loading</string>
     <string name="Home_Screen_Preferences_Button">Preferences</string>
     <string name="title_activity_roulette__screen">Roulette_Screen</string>
+    
+    <string name="consumer_key">88U8z7LaQEKwOIl57UNvEA</string>
+    <string name="consumer_secret">dim3DZPQ9_C-5Y-hwo6IT900pOs</string>
+    <string name="token">M7kb8RfSldgXHMxzZIOzlT2ARaIQzVeW</string>
+    <string name="token_secret">ojN_ht4VF-I-XMJcReLTY3tfRug</string>
+    <string name="title_activity_post__roulette__screen">Post_Roulette_Screen</string>
+    <string name="title_activity_test">testActivity</string>
+    <string name="title_activity_yelp_loading_screen">YelpLoadingScreen</string>
 </resources>

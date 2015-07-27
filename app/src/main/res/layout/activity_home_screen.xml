@@ -23,8 +23,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Home_Screen_Preferences_Button"
-        android:id="@+id/button"
+        android:id="@+id/preferences_button"
         android:onClick="openPreferences"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/preferences_button"
+        android:layout_centerHorizontal="true"
+        android:text="Post_Roulette"
+        android:id="@+id/post_roulette_button"
+        android:onClick="goToPostRouletteScreen"/>
 </RelativeLayout>
