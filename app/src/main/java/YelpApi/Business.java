@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by timbauer on 7/26/15.
  */
-public class Business implements Parcelable{
+public class Business {
     public String display_phone;
     public String id;
     public String name;
@@ -43,13 +43,4 @@ public class Business implements Parcelable{
         return businessAttributes;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
-    }
 }

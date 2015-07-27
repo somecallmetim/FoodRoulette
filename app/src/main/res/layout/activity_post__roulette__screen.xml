@@ -6,13 +6,80 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#FFFF00"
     tools:context="timbauer.foodroulette.PostRouletteScreenFragment">
 
-
-    <ListView
+    <fragment
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/businessAttributes"></ListView>
+        android:layout_height="250dp"
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.MapFragment" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mapFragment"
+        android:paddingTop="16dp"
+        android:id="@+id/linearLayout">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#000080"
+            android:text="Maybe Later"
+            android:textColor="#FFFF00"
+            android:layout_margin="5dp"
+            android:id="@+id/skip_button"
+            android:onClick="getNextRestaurant"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#000080"
+            android:text="Bleh!!!"
+            android:id="@+id/downVoteButton"
+            android:onClick="addRestaurantToDvList"
+            android:textColor="#FFFF00"
+            android:layout_margin="5dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#000080"
+            android:text="Yes!!!"
+            android:id="@+id/get_directions"
+            android:onClick="getDirections"
+            android:textColor="#FFFF00"
+            android:layout_margin="5dp"/>
+    </LinearLayout>
+
+    <timbauer.foodroulette.CustomFont
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Congrats! You're eating at..."
+        android:textSize="24sp"
+        android:textColor="#FF0000"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
+
+    <timbauer.foodroulette.CustomFont
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exmample Text"
+        android:textColor="#000080"
+        android:textSize="32sp"
+        android:id="@+id/selected_restaurant"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp" />
+
+
+
+
+    <!--<ListView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/businessAttributes"></ListView>-->
     <!--<fragment-->
         <!--android:id="@+id/mapFragment"-->
         <!--android:name="com.google.android.gms.maps.MapFragment"-->

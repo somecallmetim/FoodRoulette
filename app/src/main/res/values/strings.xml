@@ -16,4 +16,5 @@
     <string name="title_activity_post__roulette__screen">Post_Roulette_Screen</string>
     <string name="title_activity_test">testActivity</string>
     <string name="title_activity_yelp_loading_screen">YelpLoadingScreen</string>
+    <string name="title_activity_down_voted_list">DownVotedList</string>
 </resources>

@@ -2,24 +2,72 @@ package timbauer.foodroulette;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+
+import Database.DbAbstractionLayer;
+import Database.RestaurantDatabase;
 
 
 public class SplashScreen extends Activity {
 
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 4000;
+    private RestaurantDatabase restaurantDatabase;
+    private SQLiteDatabase restaurantDb;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+        DbAbstractionLayer dbAbstractionLayer = DbAbstractionLayer.getDbAbstractionLayer();
+
+        restaurantDatabase = RestaurantDatabase.getRestaurantDatabase(this);
+        restaurantDb = restaurantDatabase.getWritableDatabase();
+
+
+        Cursor restData = restaurantDb.rawQuery("SELECT * FROM " + RestaurantDatabase.dbResTable, null);
+
+        if (!(restData.getCount() > 0)){
+
+            String[] tableColumns = new String[]{
+                    RestaurantDatabase.id,
+                    RestaurantDatabase.restaurantName,
+                    RestaurantDatabase.displayPhone,
+                    RestaurantDatabase.image_url,
+                    RestaurantDatabase.mobile_url,
+                    RestaurantDatabase.phone,
+                    RestaurantDatabase.rating,
+                    RestaurantDatabase.reviewCount,
+            };
+
+            ContentValues dummyRestaurant = new ContentValues();
+
+            dummyRestaurant.put(tableColumns[0], "-1");
+            dummyRestaurant.put(tableColumns[1], "dummyRestaurant");
+
+            for(int i = 2; i < tableColumns.length; i++){
+                dummyRestaurant.put(tableColumns[i], "");
+            }
+
+            restaurantDb.insert(RestaurantDatabase.dbResTable, null, dummyRestaurant);
+
+            showEULAmessage();
+
+        }
+        restaurantDb.close();
+        restaurantDatabase.close();
+        restData.close();
+
 
         /*
          * used http://stackoverflow.com/questions/25175522/how-to-enable-location-access-programatically-in-android
@@ -82,6 +130,10 @@ public class SplashScreen extends Activity {
         startActivity(moveToHomeScreen);
         //close this activity
         finish();
+    }
+
+    private void showEULAmessage(){
+
     }
 }
 

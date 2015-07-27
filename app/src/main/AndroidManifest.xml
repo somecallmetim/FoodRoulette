@@ -57,6 +57,10 @@
             android:name=".YelpLoadingScreen"
             android:label="@string/title_activity_yelp_loading_screen" >
         </activity>
+        <activity
+            android:name=".DownVotedList"
+            android:label="@string/title_activity_down_voted_list" >
+        </activity>
     </application>
 
 </manifest>
