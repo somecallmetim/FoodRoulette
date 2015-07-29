@@ -42,6 +42,7 @@ public class SimpleEula {
         final String eulaKey = EULA_PREFIX + versionInfo.versionCode;
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mActivity);
         boolean hasBeenShown = prefs.getBoolean(eulaKey, false);
+        //hasBeenShown == false
         if(hasBeenShown == false){
 
             // Show the Eula
@@ -63,9 +64,9 @@ public class SimpleEula {
                             editor.commit();
                             dialogInterface.dismiss();
 
-                            Intent goToHomeScreen = new Intent(mContext, HomeScreen.class);
-                            mContext.startActivity(goToHomeScreen);
-
+                            Intent goToSplashScreen = new Intent(mContext, SplashScreen.class);
+                            mContext.startActivity(goToSplashScreen);
+                            mActivity.finish();
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, new Dialog.OnClickListener() {
@@ -78,7 +79,10 @@ public class SimpleEula {
 
                     });
             builder.create().show();
+        }else {
+            Intent goToSplashScreen = new Intent(mContext, SplashScreen.class);
+            mContext.startActivity(goToSplashScreen);
+            mActivity.finish();
         }
     }
-
 }

@@ -6,15 +6,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 import java.util.Random;
-
-import YelpApi.Business;
-import YelpApi.BusinessList;
 
 
 public class RouletteScreen extends ActionBarActivity {
@@ -29,13 +22,7 @@ public class RouletteScreen extends ActionBarActivity {
 
         randomNumberGenerator = new Random();
 
-//        Business[] yelpResults = BusinessList.businesses;
-//
-//        ArrayAdapter<String> businessAdapter = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_list_item_1, android.R.id.text1, yelpResults[0].toArray());
-//
-//        ListView businessAttributes = (ListView) findViewById(R.id.businessAttributes);
-//        businessAttributes.setAdapter(businessAdapter);
+        getSupportActionBar().hide();
 
     }
 

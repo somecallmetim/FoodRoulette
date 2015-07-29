@@ -44,6 +44,7 @@ public class PostRouletteScreen extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post__roulette__screen);
 
+        getSupportActionBar().hide();
 
         yelpResults = BusinessList.businesses;
 

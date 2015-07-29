@@ -39,6 +39,8 @@ public class YelpLoadingScreen extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yelp_loading_screen);
 
+        getSupportActionBar().hide();
+
         Intent getGenre = getIntent();
         genreSelector = getGenre.getExtras().getInt("restaurantGenre");
 

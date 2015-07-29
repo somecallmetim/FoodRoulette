@@ -25,6 +25,7 @@ public class DownVotedList extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_down_voted_list);
 
+        getSupportActionBar().hide();
 
         Business[] downVotedRestaurants = DbAbstractionLayer.getDownVotedList(this);
         String[] restaurantNames = new String[downVotedRestaurants.length];
